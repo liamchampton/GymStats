@@ -10,3 +10,14 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# System files
+.DS_Store
+.vscode/
+.project
+
+# Dependancies
+vendor
+
+# Compiled output
+main
