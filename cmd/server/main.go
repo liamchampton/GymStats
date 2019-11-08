@@ -3,13 +3,17 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
 func main() {
-	http.HandleFunc("/", indexHandler)
-	http.ListenAndServe(":8181", nil)
-}
+	r := mux.NewRouter()
 
-func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello world, this is a basic index page")
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
+		fmt.Fprintf(w, "hello world")
+	})
+
+	http.ListenAndServe(":8181", r)
 }
